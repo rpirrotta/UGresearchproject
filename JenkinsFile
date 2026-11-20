@@ -1,0 +1,123 @@
+pipeline {
+    agent any
+
+    environment {
+        // Ensure Jenkins finds Homebrew tools (Node, Git, etc.) on Apple Silicon and Intel Macs
+        PATH = "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:${env.PATH}"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Pulling latest project files...'
+                checkout scm
+            }
+        }
+
+        stage('Verify Structure') {
+            steps {
+                echo 'Checking required HTML, CSS, and JS files...'
+                sh '''
+                    test -f index.html
+                    test -f Issues.html
+                    test -f style.css
+                    test -f mapscript.js
+                '''
+            }
+        }
+
+        stage('Validate JavaScript') {
+            steps {
+                echo 'Checking JavaScript syntax...'
+                sh '''
+                    if command -v node >/dev/null 2>&1; then
+                        node --check mapscript.js
+                    else
+                        echo "Node.js not installed via Homebrew, skipping JS syntax check."
+                    fi
+                '''
+            }
+        }
+
+        stage('Package Site') {
+            steps {
+                echo 'Bundling static site into a macOS-friendly zip archive...'
+                sh '''
+                    rm -f hawaii-site-build.zip
+                    zip -r hawaii-site-build.zip *.html *.css *.js
+                '''
+            }pipeline {
+                 agent any
+
+                 environment {
+                     // Ensure Jenkins finds Homebrew tools (Node, Git, etc.) on Apple Silicon and Intel Macs
+                     PATH = "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:${env.PATH}"
+                 }
+
+                 stages {
+                     stage('Checkout') {
+                         steps {
+                             echo 'Pulling latest project files...'
+                             checkout scm
+                         }
+                     }
+
+                     stage('Verify Structure') {
+                         steps {
+                             echo 'Checking required HTML, CSS, and JS files...'
+                             sh '''
+                                 test -f index.html
+                                 test -f Issues.html
+                                 test -f style.css
+                                 test -f mapscript.js
+                             '''
+                         }
+                     }
+
+                     stage('Validate JavaScript') {
+                         steps {
+                             echo 'Checking JavaScript syntax...'
+                             sh '''
+                                 if command -v node >/dev/null 2>&1; then
+                                     node --check mapscript.js
+                                 else
+                                     echo "Node.js not installed via Homebrew, skipping JS syntax check."
+                                 fi
+                             '''
+                         }
+                     }
+
+                     stage('Package Site') {
+                         steps {
+                             echo 'Bundling static site into a macOS-friendly zip archive...'
+                             sh '''
+                                 rm -f hawaii-site-build.zip
+                                 zip -r hawaii-site-build.zip *.html *.css *.js
+                             '''
+                         }
+                     }
+                 }
+
+                 post {
+                     success {
+                         archiveArtifacts artifacts: 'hawaii-site-build.zip', fingerprint: true
+                         echo 'Build succeeded! Static site zip archive is ready.'
+                     }
+                     failure {
+                         echo 'Build failed. Check the console output above for missing files or syntax errors.'
+                     }
+                 }
+             }
+        }
+    }
+
+    post {
+        success {
+            archiveArtifacts artifacts: 'hawaii-site-build.zip', fingerprint: true
+            echo 'Build succeeded! Static site zip archive is ready.'
+        }
+        failure {
+            echo 'Build failed. Check the console output above for missing files or syntax errors.'
+        }
+    }
+}
