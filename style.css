@@ -1,63 +1,54 @@
 
 
-body {
+/* ==========================================================================
+  1. BASE STYLES & BACKGROUNDS
+  ========================================================================== */
 
-    /* 2. Control how the image fits the screen */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #1BB1A2;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-
-    /* Standard text and font styling */
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    color: #333;
-
 }
 
-body.homepage{
+body.homepage {
     background-image: url('Images/karsten-winegeart-fd1cQ3mmBTE-unsplash.jpg');
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
 }
 
-
-body.historypage{
+body.historypage {
     background-image: url('Images/micah-mckerlich-nVKvKNyAqkQ-unsplash.jpg');
 }
 
-body.realstoriespage{
-    background-image: url("Images/slava-jamm-mEeYyy4IPOk-unsplash.jpg");
+
+body.issuespage {
+    background-image: url('Images/spenser-sembrat-7Rn_GksKg3c-unsplash.jpg');
 }
 
-body.issuespage{
-    background-image: url("Images/spenser-sembrat-7Rn_GksKg3c-unsplash.jpg");
+body.howpage {
+    background-image: url('Images/slava-jamm-mEeYyy4IPOk-unsplash.jpg');
 }
 
-
-.content {
-    /* This creates a clean white card that floats over your background image */
-    background: rgba(255, 255, 255, 0.92);
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* Adds a soft shadow depth */
-    margin-bottom: 2rem;
-}
-
-
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #1BB1A2;
-    color: #333;
-}
+/* ==========================================================================
+   2. HEADER, MAIN & CONTENT CARDS
+   ========================================================================== */
 
 header {
-    color: white;
+    color: #020101;
     text-align: center;
     padding: 2rem 0;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
 main {
@@ -66,25 +57,53 @@ main {
     padding: 0 1rem;
 }
 
-.content, .graph-container {
-    background: rgb(171 236 230 / 0.9);
+body.homepage main {
+    max-width: 700px;
+    margin: auto;
+    padding: 1rem;
+}
+
+.content {
+    background: rgba(171, 236, 230, 0.9);
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     margin-bottom: 2rem;
+}
 
+body.homepage .content {
+    padding: 1.2rem;
+    margin-bottom: 0;
+}
 
-
+.graph-container {
+    background: rgba(171, 236, 230, 0.9);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
 }
 
 h2 {
     color: #2c3e50;
     margin-top: 0;
+    text-align: center;
 }
 
 canvas {
     max-width: 100%;
 }
+
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    color: #e4b301;
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   3. NAVIGATION
+   ========================================================================== */
 
 nav {
     display: flex;
@@ -102,10 +121,13 @@ nav a {
 }
 
 nav a:hover {
-    color: #C4DC6C; /* Changes link color when your mouse hovers over it */
+    color: #C4DC6C;
 }
 
-/* Style the overall dropdown container */
+/* ==========================================================================
+   4. DROPDOWN (<details> & <summary>)
+   ========================================================================== */
+
 details {
     background-color: #ABECE6E6;
     border: 1px solid #ABECE6E6;
@@ -115,42 +137,163 @@ details {
     transition: background-color 0.2s ease;
 }
 
-/* Hover effect to show the user it's clickable */
 details:hover {
     background-color: #ABECE6E6;
 }
 
-/* Style the clickable title bar */
 summary {
-    cursor: pointer; /* Turns mouse cursor into a clicking hand */
+    cursor: pointer;
     font-weight: bold;
-    outline: none;   /* Removes the default browser focus ring */
+    outline: none;
 }
 
-/* Style the heading inside the summary so it looks clean */
 summary h2 {
-    display: inline-block; /* Keeps the heading aligned neatly with the dropdown arrow */
+    display: inline-block;
     margin: 0;
     font-size: 1.2rem;
     color: #2c3e50;
 }
 
-body.homepage {
-    min-height: 100vh;
+/* ==========================================================================
+   5. MAP SECTION & LAYOUTS
+   ========================================================================== */
+
+.map-card-section {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background: rgb(171 236 230 / 0.9);
+    border-radius: 8px;
+}
+
+.map-single-box {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background: rgb(171 236 230 / 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.map-standalone-box {
+    margin-top: 1.5rem;
+    padding: 1.2rem;
+    display: block;
+}
+
+.map-flex-wrapper,
+.map-container-layout {
+    display: flex;
+    gap: 20px;
+    align-items: stretch;
+    margin-top: 1rem;
+}
+
+.map-info-panel,
+.map-text-box {
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-sizing: border-box;
 }
 
-body.homepage main {
-    max-width: 700px;
-    margin: auto;
+.map-visual-panel {
+    flex: 1.4;
+    min-width: 300px;
+}
+
+/* HARD HEIGHT FIX FOR LEAFLET MAP */
+#hawaiiMap {
+    display: block;
+    height: 450px !important;
+    min-height: 450px !important;
+    width: 100% !important;
+    border-radius: 8px;
+    border: 1px solid rgb(171 236 230 / 0.9);
+    background-color: rgb(171 236 230 / 0.9);
+    z-index: 1;
+}
+
+/* ==========================================================================
+   6. SLIDER CONTROLS
+   ========================================================================== */
+
+.slider-box {
+    background: rgb(171 236 230 / 0.9);
     padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid rgb(171 236 230 / 0.9);
+    margin: 1rem 0;
 }
 
-body.homepage .content {
+.era-title-badge {
+    display: inline-block;
+    font-weight: bold;
+    color: #1b4965;
+    font-size: 1.05rem;
+    margin-top: 4px;
+}
+
+.slider-box input[type="range"] {
+    width: 100%;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.slider-ticks {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #7f8c8d;
+    margin-top: 4px;
+}
+
+/* ==========================================================================
+   STANDALONE MAP CARD STYLING
+   ========================================================================== */
+
+/* Gives the map card its own distinct white background box */
+.map-standalone-box {
+    margin-top: 1.5rem;
     padding: 1.2rem;
-    margin-bottom: 0;
+    display: block;
 }
 
+/* Hard pixel height on the map container so Leaflet never collapses */
+#hawaiiMap {
+    display: block !important;
+    width: 100% !important;
+    height: 450px !important;
+    min-height: 450px !important;
+    border-radius: 8px;
+    border: 1px solid rgb(171 236 230 / 0.9);
+    background-color: rgb(171 236 230 / 0.9);
+    z-index: 1;
+}
+
+/* Legend positioning inside the standalone map card */
+.map-legend {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: rgb(171 236 230 / 0.9);
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 12px;
+    font-size: 0.82rem;
+    border: 1px solid rgb(171 236 230 / 0.9);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot.teal { background-color: rgb(27, 177, 162); }
+.dot.red { background-color: #7b1f11; }

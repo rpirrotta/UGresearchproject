@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Issues</title>
 
-    <!-- Link to CSS file -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Leaflet CSS with full integrity match -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 
 </head>
 <body class="issuespage">
@@ -15,15 +17,87 @@
     <a href="index.html">Home</a>
     <a href="History.html">History</a>
     <a href="Issues.html">Issues</a>
-    <a href="RealStories.html">Real Stories</a>
     <a href="Whatcanbedone.html">What can you do?</a>
 </nav>
 
 <header>Why is this happening?</header>
 
-<h1>What Issues are Leading to this Significant Displacement </h1>
-<p>-developers buying up land - real estate becoming hotels and airbnbs -prioritizing tourists over locals during natural disasters (heavy flooding and how it is similar to many other 'paradise' islands such as puerto rico prioritizing water for hotels, goverment issues and corruption) -people from US,rich white people, moving to hawaii and expecting to be treated a certain way(mention book and how many white people feel like they are "experiencing racism" because out the haole distain in the culture. </p>
+<main>
+
+    <section class="content map-single-box" style="margin-top: 2.5rem; background: rgb(171 236 230 / 0.9); padding: 20px; border-radius: 8px; border: 1px solid rgb(171 236 230 / 0.9);">
+        <h2>Economic Gap in Hawaii</h2>
+        <p style="font-size: 0.9rem; color: #475569;">
+            The main issue that has led to the displacement of so many native Hawaiians is the gap between average wages and the living costs. People move from the mainland often because they are finacially well off, and have stable employment and savings. While Hawaiians struggle to find good jobs, and often are born into lower-income families. This leads, for many, no choice but to move to the states where there are better chances for employment. This gap is continuing to widen over time.
+        </p>
+
+        <!-- Chart Canvas Container -->
+        <div style="position: relative; width: 100%; height: 400px; margin-top: 1rem;">
+            <canvas id="hawaiiEconomyChart"></canvas>
+        </div>
+
+    </section>
+
+    <!-- Include Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <!-- Box 1: Dropdown Summary -->
+    <section class="content">
+        <details>
+            <summary><h2>Developers Buying up land</h2></summary>
+            <p>Lana'i, the sixth largest of the Hawaiian Islands, is 98% owned by one billionare names Larry Ellison. 65% of Farmland in Hawaii is foreignly owned, and 11% of land is owned by only 37 billionares. Much of this land is put to use as a place for resorts and hotels. While so many native Hawaiians struggle to find housing and jobs, developers and billionares hold onto valuable land for personal profit. </p>
+        </details>
+    </section>
+
+    <!-- Box 2: Timeline Slider & Research Text -->
+    <section class="content">
+        <h2>Native Hawaiian vs. Developers Land Ownership</h2>
+
+        <div class="slider-control-box" style="margin-top: 1rem; background: rgb(171 236 230 / 0.9); padding: 1rem; border-radius: 6px;">
+            <label for="eraSlider">
+                <strong>Selected Year: </strong>
+                <span id="eraDisplay" style="font-weight: bold; color: #1b4965; font-size: 1.1rem;">1980</span>
+            </label>
+            <input type="range" id="eraSlider" min="0" max="9" step="1" value="0" style="width: 100%; cursor: pointer; margin-top: 8px;">
+
+            <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: #666; margin-top: 4px;">
+                <span>1980</span>
+                <span>1990</span>
+                <span>2000</span>
+                <span>2010</span>
+                <span>2020</span>
+                <span>2025</span>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Box 3: Dedicated Standalone Map Card -->
+    <section class="content map-standalone-box">
+        <div id="hawaiiMap"></div>
+
+        <div class="map-legend">
+            <div class="legend-item"><span class="dot teal"></span> Native Owned</div>
+            <div class="legend-item"><span class="dot red"></span> Developer Owned</div>
+        </div>
+    </section>
+
+    <section class="content">
+        <details>
+        <summary><h2>U.S. Control</h2></summary>
+        <p>The U.S. holds claim to mnay territories such as Puerto Rico, Guam, and Hawaii. The U.S. has control over Hawaii's land and resources, often at the expense of native Hawaiian communities. U.S. territories cannot vote in the U.S. elections and are only represented in senate with no voting power. Poverty rates are higher in these places, and are more prone to natural disasters geographically. Various policies and practices put in place without Hawaiian voices negativley effect the community, including the forced relocation of native Hawaiians from their ancestral lands, the establishment of military bases, and the exploitation of natural resources for economic gain. The ongoing struggle for sovereignty and self-determination continues to be a central issue in Hawaii's political landscape.</p>
+        </details>
+    </section>
+
+</main>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script type="text/javascript" src="mapscript.js"></script>
+
+<footer>
+    <p> 2026 Research Project | Rachel Pirrotta | <a href="Sources.html">Sources</a></p>
+</footer>
 
 </body>
-
 </html>

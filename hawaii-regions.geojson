@@ -1,0 +1,114 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "id": "honolulu", "name": "Metro Honolulu & South Oʻahu" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-157.860, 21.250], [-157.880, 21.320], [-157.820, 21.360],
+          [-157.680, 21.310], [-157.700, 21.270], [-157.810, 21.250]
+        ]]
+      }
+    },
+    {
+     "type": "Feature",
+     "properties": { "id": "hilo", "name": "East Hawaiʻi (Hilo & Puna District)" },
+     "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+       [-155.150, 19.820], [-155.020, 19.720], [-154.820, 19.450],
+       [-155.100, 19.350], [-155.280, 19.600]
+            ]]
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": { "id": "molokai", "name": "Molokaʻi & Lānaʻi Island Region" },
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [[
+              [-157.300, 21.220], [-156.700, 21.150], [-156.850, 20.800], [-157.250, 21.100]
+            ]]
+          }
+        }
+    {
+      "type": "Feature",
+      "properties": { "id": "windward", "name": "Windward Oʻahu (Kāneʻohe to Lāʻie)" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-157.680, 21.310], [-157.750, 21.400], [-157.850, 21.500],
+          [-157.920, 21.650], [-157.800, 21.580], [-157.650, 21.380]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "north_shore", "name": "North Shore Oʻahu (Waialua to Kahuku)" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-158.150, 21.580], [-158.050, 21.680], [-157.920, 21.650],
+          [-157.950, 21.500], [-158.100, 21.520]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "leeward", "name": "Waiʻanae & Leeward Oʻahu" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-158.120, 21.320], [-158.200, 21.400], [-158.250, 21.580],
+          [-158.150, 21.580], [-158.050, 21.380]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "west_maui", "name": "West Maui District (Lahaina & Kāʻanapali)" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-156.650, 20.800], [-156.700, 20.900], [-156.680, 21.020],
+          [-156.550, 21.000], [-156.580, 20.880]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "south_maui", "name": "South Maui District (Kīhei & Wailea)" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-156.480, 20.780], [-156.450, 20.700], [-156.420, 20.600],
+          [-156.320, 20.600], [-156.380, 20.750]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "kona", "name": "Kona Coast District (Hawaiʻi Island)" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-155.920, 19.400], [-156.000, 19.650], [-156.050, 19.850],
+          [-155.900, 20.000], [-155.750, 19.700], [-155.800, 19.450]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": "kauai_north", "name": "Kauaʻi North Shore District (Hanalei)" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-159.600, 22.180], [-159.580, 22.230], [-159.400, 22.220],
+          [-159.380, 22.150], [-159.520, 22.120]
+        ]]
+      }
+    }
+  ]
+}
